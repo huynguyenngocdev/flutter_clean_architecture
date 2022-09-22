@@ -1,9 +1,14 @@
+import 'dart:async';
+
+import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_clean_architecture/src/modules/app/app.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/di/dependency_injection.dart';
-import 'modules/app/app.dart';
+import 'core/utils/bloc_observer.dart';
 
 void mainDelegate() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +25,14 @@ void mainDelegate() async {
 
   await Hive.initFlutter();
   await configureInjection();
+  Bloc.observer = AppBlocObserver();
 
-  runApp(const MyApp());
+  return runZonedGuarded(() async {
+    runApp(const App());
+  }, (error, stack) {
+    if (kDebugMode) {
+      print(stack);
+      print(error);
+    }
+  });
 }

@@ -4,17 +4,17 @@ class AppConfig {
   late Environment environment;
   late Map<String, dynamic> _config;
 
-  String get baseUrl => _config[_Config.BASE_URL];
+  String get baseUrl => _config[_Config.baseURL];
 
   AppConfig(this.environment) {
     switch (environment) {
-      case Environment.DEV:
+      case Environment.dev:
         _config = _Config.devConstants;
         break;
-      case Environment.STAGING:
+      case Environment.staging:
         _config = _Config.stagingConstants;
         break;
-      case Environment.PROD:
+      case Environment.prod:
         _config = _Config.prodConstants;
         break;
     }
@@ -22,17 +22,17 @@ class AppConfig {
 }
 
 class _Config {
-  static const BASE_URL = 'BASE_URL';
+  static const baseURL = 'BASE_URL';
 
   static Map<String, dynamic> devConstants = {
-    BASE_URL: 'https://api-dev',
+    baseURL: 'https://api-dev',
   };
 
   static Map<String, dynamic> stagingConstants = {
-    BASE_URL: 'https://api-staging',
+    baseURL: 'https://api-staging',
   };
 
   static Map<String, dynamic> prodConstants = {
-    BASE_URL: 'https://api-product',
+    baseURL: 'https://api-product',
   };
 }

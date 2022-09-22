@@ -42,6 +42,8 @@ dependencies:
   # Toast view
   fluttertoast: ^8.0.7
   url_launcher: ^6.1.5
+  intl: ^0.17.0
+  flare_flutter: ^3.0.2
 
 
 

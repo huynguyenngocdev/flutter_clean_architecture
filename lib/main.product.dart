@@ -3,6 +3,6 @@ import 'src/core/core.dart';
 import 'src/main.dart';
 
 void main() {
-  Core.init(Environment.PROD);
+  Core.init(Environment.prod);
   mainDelegate();
 }

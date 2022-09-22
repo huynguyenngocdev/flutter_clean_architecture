@@ -20,10 +20,7 @@ class ColorName {
   static const Color actionBarIconColor = Color(0xFF030104);
 
   /// Color: #FFFFFF
-  static const Color backgroundColor = Color(0xFFFFFFFF);
-
-  /// Color: #000000
-  static const Color black = Color(0xFF000000);
+  static const Color background = Color(0xFFFFFFFF);
 
   /// MaterialColor:
   ///   50: #FFF9E5E5
@@ -52,6 +49,9 @@ class ColorName {
     },
   );
 
+  /// Color: #F92908
+  static const Color error = Color(0xFFF92908);
+
   /// Color: #979797
   static const Color gray410 = Color(0xFF979797);
 
@@ -61,14 +61,29 @@ class ColorName {
   /// Color: #030303
   static const Color groupTitleColor = Color(0xFF030303);
 
-  /// Color: #FFFFFF
-  static const Color primaryColor = Color(0xFFFFFFFF);
+  /// Color: #000000
+  static const Color onBackground = Color(0xFF000000);
 
   /// Color: #FFFFFF
-  static const Color primaryColorDark = Color(0xFFFFFFFF);
+  static const Color onError = Color(0xFFFFFFFF);
 
   /// Color: #FFFFFF
-  static const Color white = Color(0xFFFFFFFF);
+  static const Color onPrimary = Color(0xFFFFFFFF);
+
+  /// Color: #000000
+  static const Color onSecondary = Color(0xFF000000);
+
+  /// Color: #000000
+  static const Color onSurface = Color(0xFF000000);
+
+  /// Color: #FC5B41
+  static const Color primary = Color(0xFFFC5B41);
+
+  /// Color: #FFF0EE
+  static const Color secondary = Color(0xFFFFF0EE);
+
+  /// Color: #FFFFFF
+  static const Color surface = Color(0xFFFFFFFF);
 
   /// MaterialColor:
   ///   50: #FFFBF2E5
