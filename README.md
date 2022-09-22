@@ -67,7 +67,9 @@ A Flutter codebase follows the clean architecture and makes it scalable with a m
 **If added some models for api results**
 - Use [Freezed](https://pub.dev/packages/freezed) or [Equatable](https://pub.dev/packages/equatable)
 **Auto generate resource(___.g.dart/___.freezed.dart)**
-```flutter packages pub run build_runner build --delete-conflicting-outputs```
+```
+flutter packages pub run build_runner build --delete-conflicting-outputs
+```
 
 ## Project struct
 - I use `BLOC` pattern and `MVVM` + `Clean Architechture`
@@ -83,9 +85,9 @@ A Flutter codebase follows the clean architecture and makes it scalable with a m
 or https://blog.usejournal.com/flutter-di-a-true-love-story-1e5a5ae2ba2d
 
 ### Networking layer
-I use dio_builder.dart as a `dio` client generator using `source_gen` and inspired by Chopper and Retrofit.
-    - About `Retrofit` https://pub.dev/packages/retrofit and https://mings.in/retrofit.dart/
-    - About `dio` https://pub.dev/packages/dio
+- I use dio_builder.dart as a `dio` client generator using `source_gen` and inspired by Chopper and Retrofit.
+    - About `Retrofit`: https://pub.dev/packages/retrofit and https://mings.in/retrofit.dart/
+    - About `dio`: https://pub.dev/packages/dio
     - Too lazy to repeat write network layer ? You could try to do it for us `retrofit-generator` https://pub.dev/packages/retrofit_generator
     - To use `source_gen`, please read here: https://medium.com/flutter-community/part-2-code-generation-in-dart-annotations-source-gen-and-build-runner-bbceee28697b
     and https://github.com/dart-lang/build/blob/master/docs/writing_a_builder.md#configuring-outputs
@@ -95,7 +97,6 @@ This is a diagram that I drew to design and describe this codebase. (to view PDF
     ![alt text](files/Codebase%20Clean%20Architecture%20Flutter.drawio.png)
 
 **Exception Flow**
-
     ![alt text](files/exception-handler.jpg)
 
 ## Architecture overview
