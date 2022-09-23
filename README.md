@@ -50,8 +50,7 @@ or
 ```
 or
 ```
-    lutter run --flavor product -t lib/main.product.dart
-   
+    flutter run --flavor product -t lib/main.product.dart
 ```
 - If using the another library not build with null-safety. Please run with argument `flutter run --no-sound-null-safety`
 
