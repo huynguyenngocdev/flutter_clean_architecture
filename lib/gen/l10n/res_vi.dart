@@ -5,7 +5,7 @@ class ResourceVi extends Resource {
   ResourceVi([String locale = 'vi']) : super(locale);
 
   @override
-  String get helloWorld => 'Hello World!';
+  String get helloWorld => 'Hi, chào cậu ᰔᩚ, tớ là Flutter (>‿◠)✌  !';
 
   @override
   String get appName => 'Codebase Clean Architecture';
