@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/core/models/constants.dart';
+import 'package:flutter_clean_architecture/src/core/types/direction_type.dart';
 import 'package:flutter_clean_architecture/src/modules/home/presentation/home_screen/home_screen.dart';
+import 'package:flutter_clean_architecture/src/modules/home/presentation/second_screen/second_screen.dart';
 import 'package:flutter_clean_architecture/src/modules/splash/splash.dart';
 
-enum Routes { splash, home, login }
+enum Routes { splash, home, login, secondScreen }
 
 class _Paths {
   static const String splash = '/';
-  static const String home = '/home';
   static const String login = '/login';
+  static const String home = '/home';
+  static const String secondScreen = '/home/secondScreen';
 
   static const Map<Routes, String> _pathMap = {
     Routes.splash: _Paths.splash,
     Routes.login: _Paths.login,
     Routes.home: _Paths.home,
+    Routes.secondScreen: _Paths.secondScreen,
   };
 
   static String of(Routes route) => _pathMap[route] ?? splash;
@@ -25,11 +28,21 @@ class AppNavigator {
   static Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case _Paths.splash:
-        return MaterialPageRoute(builder: (_) => SplashScreen());
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
 
+      case _Paths.secondScreen:
+        return NavSlideCloseCustom(
+          child: const SecondScreen(),
+          direction: DirectionType.left,
+        );
+
+      ///Defaul case
       case _Paths.home:
       default:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return NavSlideCloseCustom(
+          child: const HomeScreen(),
+          direction: DirectionType.none,
+        );
     }
   }
 
@@ -44,10 +57,11 @@ class AppNavigator {
   static NavigatorState? get state => navigatorKey.currentState;
 }
 
-class NavSlideCustom extends PageRouteBuilder {
+class NavSlideCloseCustom extends PageRouteBuilder {
   final Widget child;
-  Direction direction;
-  NavSlideCustom({required this.child, this.direction = Direction.none})
+  DirectionType direction;
+  NavSlideCloseCustom(
+      {required this.child, this.direction = DirectionType.none})
       : super(
           transitionDuration: const Duration(milliseconds: 0),
           reverseTransitionDuration: const Duration(milliseconds: 200),
@@ -56,22 +70,22 @@ class NavSlideCustom extends PageRouteBuilder {
 
   Tween<Offset> getPosition() {
     switch (direction) {
-      case Direction.left:
+      case DirectionType.left:
         return Tween<Offset>(
           begin: const Offset(-1, 0),
           end: Offset.zero,
         );
-      case Direction.right:
+      case DirectionType.right:
         return Tween<Offset>(
           begin: const Offset(1, 0),
           end: Offset.zero,
         );
-      case Direction.top:
+      case DirectionType.top:
         return Tween<Offset>(
           begin: const Offset(0, -1),
           end: Offset.zero,
         );
-      case Direction.bottom:
+      case DirectionType.bottom:
         return Tween<Offset>(
           begin: const Offset(0, 1),
           end: Offset.zero,

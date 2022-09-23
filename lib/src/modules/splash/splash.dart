@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/src/modules/app/routes.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   State<StatefulWidget> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  static const double _splashIconSize = 50;
-
   @override
   void initState() {
     scheduleMicrotask(() async {
       //TODO: check data, token, load cache images (use `precacheImage` function) here
-      await Future.delayed(const Duration(milliseconds: 400));
+      await Future.delayed(const Duration(milliseconds: 1500));
       await AppNavigator.replaceWith(Routes.home);
     });
 
@@ -30,10 +30,10 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             Text(
-              'Hi,',
+              'Hi, this is Splash Screen',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 32,
                 fontWeight: FontWeight.w600,
               ),
             )
