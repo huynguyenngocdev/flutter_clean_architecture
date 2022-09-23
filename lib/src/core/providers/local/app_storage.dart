@@ -1,10 +1,8 @@
 import 'package:hive/hive.dart';
-import 'package:injectable/injectable.dart';
 
 import 'pref/app_pref.dart';
 import 'pref/pref_helper.dart';
 
-@injectable
 class AppStorage {
   static const _prefsBox = 'prefs';
 

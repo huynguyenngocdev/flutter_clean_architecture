@@ -29,7 +29,6 @@ dependencies:
   retrofit: ^3.0.1+1
   # Json serializable & model
   json_annotation: ^4.7.0
-  freezed_annotation: ^2.1.0
   # for data class
   equatable: ^2.0.3
   # local store
@@ -51,7 +50,6 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
   # Data class
-  freezed: ^2.1.0+1
   # Auto generate some files
   injectable_generator: ^1.5.4
   flutter_gen_runner: ^4.3.0

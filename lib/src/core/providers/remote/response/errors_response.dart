@@ -1,6 +1,6 @@
 import 'package:flutter_clean_architecture/src/core/base/data_model.dart';
 import 'package:flutter_clean_architecture/src/core/models/models.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'errors_response.g.dart';
 

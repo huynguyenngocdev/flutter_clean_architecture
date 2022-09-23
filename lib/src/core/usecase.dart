@@ -1,12 +1,15 @@
-import 'package:flutter/material.dart';
-
-abstract class UseCase<@required Params, T> {
-  /// create observable
-  Future<T> createObservable(Params params);
-
-  /// dispose if use stream subscription on the use case
-  /// needed call dispose on view model
-  Future<void> dispose() => throw UnimplementedError();
+abstract class BaseUseCase<T> {
+  const BaseUseCase();
 }
 
-abstract class Any {}
+abstract class UseCase<T, P> extends BaseUseCase<T> {
+  const UseCase() : super();
+
+  Future<T> call(P params);
+}
+
+abstract class NoParamsUseCase<T> extends BaseUseCase<T> {
+  const NoParamsUseCase() : super();
+
+  Future<T> call();
+}

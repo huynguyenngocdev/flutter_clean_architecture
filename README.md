@@ -70,7 +70,7 @@ or
 **If added some assets/fonts/colors**
 - Use [FlutterGen](https://github.com/FlutterGen/flutter_gen/)
 **If added some models for api results**
-- Use [Freezed](https://pub.dev/packages/freezed) or [Equatable](https://pub.dev/packages/equatable)
+- [Equatable](https://pub.dev/packages/equatable) and [json_annotation](https://pub.dev/packages/json_annotation)
 **Auto generate resource(___.g.dart/___.freezed.dart)**
 ```
 flutter gen-l10n
