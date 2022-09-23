@@ -43,8 +43,14 @@ A Flutter codebase follows the clean architecture and makes it scalable with a m
 - Run with Flavor (dev | stag | prod):
 ```   
     flutter run --flavor development -t lib/main.dev.dart
-    or flutter run --flavor staging -t lib/main.staging.dart
-    or lutter run --flavor product -t lib/main.product.dart
+```
+or
+```
+    flutter run --flavor staging -t lib/main.staging.dart
+```
+or
+```
+    lutter run --flavor product -t lib/main.product.dart
    
 ```
 - If using the another library not build with null-safety. Please run with argument `flutter run --no-sound-null-safety`
@@ -68,6 +74,7 @@ A Flutter codebase follows the clean architecture and makes it scalable with a m
 - Use [Freezed](https://pub.dev/packages/freezed) or [Equatable](https://pub.dev/packages/equatable)
 **Auto generate resource(___.g.dart/___.freezed.dart)**
 ```
+flutter gen-l10n
 flutter packages pub run build_runner build --delete-conflicting-outputs
 ```
 
