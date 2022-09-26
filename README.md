@@ -100,7 +100,175 @@ or https://blog.usejournal.com/flutter-di-a-true-love-story-1e5a5ae2ba2d
 
 ### Codebase Overview
 This is a diagram that I drew to design and describe this codebase. (to view PDF version ![click here](files/Codebase%20Clean%20Architecture%20Flutter.drawio.pdf))
-    ![alt text](files/Codebase%20Clean%20Architecture%20Flutter.drawio.png)
+```
+.
+├── gen
+│   ├── l10n
+│   │   ├── res_en.dart
+│   │   ├── res_vi.dart
+│   │   ├── (...).dart
+│   │   └── res.dart
+│   ├── assets.gen.dart
+│   ├── colors.gen.dart
+│   └── fonts.gen.dart
+├── res
+│   ├── res_en.arb
+│   └── res_vi.arb
+├── src
+│   ├── core
+│   │   ├── base
+│   │   │   ├── base_exception_mapper.dart
+│   │   │   ├── data_model.dart
+│   │   │   ├── entity_item.dart
+│   │   │   └── model_item_mapper.dart
+│   │   ├── config
+│   │   │   ├── app_config.dart
+│   │   │   ├── constants.dart
+│   │   │   ├── environment.dart
+│   │   │   └── themes.dart
+│   │   ├── di
+│   │   │   ├── dependency_injection.config.dart
+│   │   │   ├── dependency_injection.dart
+│   │   │   └── locator.dart
+│   │   ├── error_handles
+│   │   │   ├── alert_exception.dart
+│   │   │   ├── app_error.dart
+│   │   │   ├── base_exception.dart
+│   │   │   ├── inline_exception.dart
+│   │   │   ├── on_page_exception.dart
+│   │   │   ├── redirect_exception.dart
+│   │   │   ├── snack_bar_exception.dart
+│   │   │   └── toast_exception.dart
+│   │   ├── mapper
+│   │   │   ├── exception_mapper.dart
+│   │   │   ├── mapper.dart
+│   │   │   └── resource_mapper.dart
+│   │   ├── models
+│   │   │   ├── dialog.dart
+│   │   │   ├── error_data_model.dart
+│   │   │   ├── error_data_model.g.dart
+│   │   │   ├── models.dart
+│   │   │   └── tag.dart
+│   │   ├── providers
+│   │   │   ├── local
+│   │   │   │   ├── pref
+│   │   │   │   │   ├── app_pref.dart
+│   │   │   │   │   └── pref_helper.dart
+│   │   │   │   └── app_storage.dart
+│   │   │   └── remote
+│   │   │       ├── builder
+│   │   │       │   └── dio_builder.dart
+│   │   │       ├── interceptor
+│   │   │       │   └── header_interceptor.dart
+│   │   │       └── response
+│   │   │           ├── errors_response.dart
+│   │   │           └── errors_response.g.dart
+│   │   ├── services
+│   │   │   ├── request_permission.dart
+│   │   │   └── socket.dart
+│   │   ├── types
+│   │   │   ├── action.dart
+│   │   │   ├── direction_type.dart
+│   │   │   ├── exception_type.dart
+│   │   │   ├── redirect_type.dart
+│   │   │   └── tag_type.dart
+│   │   ├── utils
+│   │   │   ├── extensions
+│   │   │   │   ├── async_snapshot.dart
+│   │   │   │   ├── build_context.dart
+│   │   │   │   └── context.dart
+│   │   │   ├── app_lifecycle.dart
+│   │   │   ├── app_size.dart
+│   │   │   ├── bloc_observer.dart
+│   │   │   └── utils.dart
+│   │   ├── core.dart
+│   │   ├── endpoints.dart
+│   │   └── usecase.dart
+│   ├── modules
+│   │   ├── app
+│   │   │   ├── bloc
+│   │   │   │   ├── language_bloc.dart
+│   │   │   │   ├── language_event.dart
+│   │   │   │   └── language_state.dart
+│   │   │   ├── app.dart
+│   │   │   └── routes.dart
+│   │   ├── authentication
+│   │   │   ├── data
+│   │   │   │   └── data.dart
+│   │   │   ├── domain
+│   │   │   │   └── domain.dart
+│   │   │   └── presentation
+│   │   │       ├── bloc
+│   │   │       │   ├── auth_bloc
+│   │   │       │   │   ├── auth_bloc.dart
+│   │   │       │   │   ├── auth_event.dart
+│   │   │       │   │   └── auth_state.dart
+│   │   │       │   └── profile_bloc
+│   │   │       │       ├── profile_bloc.dart
+│   │   │       │       ├── profile_event.dart
+│   │   │       │       └── profile_state.dart
+│   │   │       ├── forgot_password
+│   │   │       │   └── forgot_password_screen.dart
+│   │   │       ├── login
+│   │   │       │   └── login_screen.dart
+│   │   │       ├── profile
+│   │   │       │   └── profile_screen.dart
+│   │   │       └── register
+│   │   │           └── register_screen.dart
+│   │   ├── common_widgets
+│   │   │   ├── app_indicator.dart
+│   │   │   ├── avatar_circle_edit.dart
+│   │   │   ├── avatar_circle.dart
+│   │   │   ├── loading_popup.dart
+│   │   │   ├── popup_modal_custom_content.dart
+│   │   │   ├── popup_notification.dart
+│   │   │   ├── popup.dart
+│   │   │   └── (...).dart
+│   │   ├── home
+│   │   │   ├── data
+│   │   │   │   ├── mappers
+│   │   │   │   │   ├── (...).g.dart
+│   │   │   │   │   └── fiml_mapper.dart
+│   │   │   │   ├── models
+│   │   │   │   │   ├── film_model.dart
+│   │   │   │   │   ├── film_model.g.dart
+│   │   │   │   │   ├── (...).dart
+│   │   │   │   │   ├── (...).g.dart
+│   │   │   │   │   └── models.dart
+│   │   │   │   ├── remote_source
+│   │   │   │   │   ├── api
+│   │   │   │   │   │   ├── film_api.dart
+│   │   │   │   │   │   ├── film_api.g.dart
+│   │   │   │   │   │   └── (...).dart
+│   │   │   │   │   └── response
+│   │   │   │   │       ├── film_response.dart
+│   │   │   │   │       └── film_response.g.dart
+│   │   │   │   └── repository_implementations
+│   │   │   │       └── film_repository_impl.dart
+│   │   │   ├── domain
+│   │   │   │   ├── entities
+│   │   │   │   │   └── film_entity.dart
+│   │   │   │   ├── repositories
+│   │   │   │   │   └── film_repository.dart
+│   │   │   │   └── usecases
+│   │   │   │       └── film_usecases.dart
+│   │   │   └── presentation
+│   │   │       ├── bloc
+│   │   │       │   └── film_bloc
+│   │   │       │       ├── film_bloc.dart
+│   │   │       │       ├── film_event.dart
+│   │   │       │       └── film_state.dart
+│   │   │       ├── home_screen
+│   │   │       │   └── home_screen.dart
+│   │   │       └── second_screen
+│   │   │           └── second_screen.dart
+│   │   └── splash
+│   │       └── splash.dart
+│   └── main.dart
+├── main.dev.dart
+├── main.product.dart
+└── main.staging.dart
+```
 
 **Exception Flow**
     ![alt text](files/exception-handler.jpg)
