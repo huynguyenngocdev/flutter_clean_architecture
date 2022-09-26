@@ -1,5 +1,5 @@
-abstract class ModelItemMapper<ModelDataModel, ModelItem> {
-  ModelItem mapperTo(ModelDataModel data);
+abstract class ModelToEntityMapper<DataModel, EntityItem> {
+  EntityItem mapperTo(DataModel data);
 
-  ModelDataModel mapperFrom(ModelItem data) => throw UnimplementedError();
+  DataModel mapperFrom(EntityItem data) => throw UnimplementedError();
 }

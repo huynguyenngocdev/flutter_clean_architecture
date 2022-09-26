@@ -10,7 +10,7 @@ import 'package:flutter_clean_architecture/src/core/models/models.dart';
 import 'package:flutter_clean_architecture/src/core/models/tag.dart';
 import 'package:flutter_clean_architecture/src/core/types/redirect_type.dart';
 
-//TODO: use it in Implement of Repository(in Domain)
+//TODO: Should use it in Implement of RepositoryIml(in Data)
 class ExceptionMapper extends BaseExceptionMapper<AppError, BaseException> {
   final String _languageCode;
   final ResourceMapper _resourceMapper = ResourceMapper();

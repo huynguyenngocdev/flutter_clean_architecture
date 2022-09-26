@@ -7,6 +7,4 @@ abstract class FilmEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class FetchFilmsEvent {
-  FilmRepository
-}
+class FetchFilmsEvent extends FilmEvent {}

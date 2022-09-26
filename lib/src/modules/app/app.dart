@@ -5,7 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/gen/l10n/res.dart';
 import 'package:flutter_clean_architecture/src/core/config/constants.dart';
 import 'package:flutter_clean_architecture/src/core/config/themes.dart';
+import 'package:flutter_clean_architecture/src/core/di/dependency_injection.dart';
 import 'package:flutter_clean_architecture/src/modules/app/bloc/language_bloc.dart';
+import 'package:flutter_clean_architecture/src/modules/home/domain/usecases/film_usecases.dart';
+import 'package:flutter_clean_architecture/src/modules/home/presentation/bloc/film_bloc/film_bloc.dart';
 
 import 'routes.dart';
 
@@ -19,6 +22,9 @@ class App extends StatelessWidget {
         //TODO: Provider all BLOC here
         BlocProvider(
           create: (_) => LanguageBloc(),
+        ),
+        BlocProvider(
+          create: (_) => FilmBloc(getIt<FetchFilmUseCase>()),
         ),
       ],
       child: const AppView(),
