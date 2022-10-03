@@ -7,6 +7,10 @@ abstract class PrefHelper {
 
   Future setToken(String token);
 
+  Future setLanguageCode(String languageCode);
+
+  String getLanguageCode();
+
   // Future saveUser(UserDataModel user);
 
   // Future<UserDataModel?> getUserSaved();

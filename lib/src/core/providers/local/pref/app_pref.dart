@@ -5,7 +5,7 @@ import 'pref_helper.dart';
 class AppPrefs extends PrefHelper {
   static const String _firstRunKey = 'first_run_key';
   static const String _tokenKey = 'token_key';
-  static const String _userKey = 'user_key';
+  static const String _languageKey = 'language_code_key';
 
   final Box _prefBox;
   AppPrefs({required Box prefBox}) : _prefBox = prefBox;
@@ -28,6 +28,16 @@ class AppPrefs extends PrefHelper {
   @override
   Future setToken(String token) async {
     await _prefBox.put(_tokenKey, token);
+  }
+
+  @override
+  Future setLanguageCode(String languageCode) async {
+    await _prefBox.put(_languageKey, languageCode);
+  }
+
+  @override
+  String getLanguageCode() {
+    return _prefBox.get(_languageKey) ?? 'en';
   }
 
   // @override

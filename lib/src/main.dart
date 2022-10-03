@@ -8,6 +8,7 @@ import 'package:flutter_clean_architecture/src/modules/app/app.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/di/dependency_injection.dart';
+import 'core/providers/local/app_storage.dart';
 import 'core/utils/bloc_observer.dart';
 
 void mainDelegate() async {
@@ -24,7 +25,10 @@ void mainDelegate() async {
   ]);
 
   await Hive.initFlutter();
+  await AppStorage.init();
+
   await configureInjection();
+
   Bloc.observer = AppBlocObserver();
 
   return runZonedGuarded(() async {

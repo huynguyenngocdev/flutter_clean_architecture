@@ -25,14 +25,14 @@ class _Config {
   static const baseURL = 'BASE_URL';
 
   static Map<String, dynamic> devConstants = {
-    baseURL: 'https://api-dev',
+    baseURL: 'https://ghibliapi.herokuapp.com',
   };
 
   static Map<String, dynamic> stagingConstants = {
-    baseURL: 'https://api-staging',
+    baseURL: 'https://ghibliapi.herokuapp.com',
   };
 
   static Map<String, dynamic> prodConstants = {
-    baseURL: 'https://api-product',
+    baseURL: 'https://ghibliapi.herokuapp.com',
   };
 }

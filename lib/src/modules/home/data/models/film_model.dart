@@ -22,7 +22,7 @@ class FilmModel extends Equatable with DataModel {
   final String? director;
   final String? producer;
 
-  @JsonKey(name: 'releaseDate')
+  @JsonKey(name: 'release_date')
   final String? releaseDate;
 
   @JsonKey(name: 'running_time')

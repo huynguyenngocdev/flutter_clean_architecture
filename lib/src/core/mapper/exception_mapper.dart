@@ -14,7 +14,6 @@ import 'package:flutter_clean_architecture/src/core/types/redirect_type.dart';
 class ExceptionMapper extends BaseExceptionMapper<AppError, BaseException> {
   final String _languageCode;
   final ResourceMapper _resourceMapper = ResourceMapper();
-
   ExceptionMapper({required String languageCode})
       : _languageCode = languageCode;
 

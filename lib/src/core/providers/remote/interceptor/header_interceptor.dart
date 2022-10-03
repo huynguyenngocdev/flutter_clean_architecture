@@ -8,7 +8,7 @@ class HeaderInterceptor extends InterceptorsWrapper {
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
-    final token = await AppStorage.init().prefHelper.getToken();
+    final token = await AppStorage.use().prefHelper.getToken();
     if (token?.isNotEmpty == true) {
       options.headers[authHeaderKey] = '$bearer $token';
     }

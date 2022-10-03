@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_clean_architecture/src/modules/home/data/mappers/fiml_mapper.dart';
 import 'package:flutter_clean_architecture/src/modules/home/domain/entities/film_entity.dart';
 import 'package:flutter_clean_architecture/src/modules/home/domain/usecases/film_usecases.dart';
 
@@ -16,19 +15,10 @@ class FilmBloc extends Bloc<FilmEvent, FilmState> {
   }
 
   void _onLoad(FetchFilmsEvent event, Emitter<FilmState> emit) async {
+    emit(state.asLoading());
     try {
-      emit(state.asLoading());
-
-      final films = await _filmUseCase.call();
-      List<FilmEntity> mapToFilmEntity = [];
-
-      films.map(
-        (e) => mapToFilmEntity.add(
-          FilmMapper().mapperTo(e),
-        ),
-      );
-
-      emit(state.asLoadSuccess(mapToFilmEntity));
+      List<FilmEntity> films = await _filmUseCase();
+      emit(state.asLoadSuccess(films));
     } on Exception catch (e) {
       emit(state.asLoadFailure(e));
     }

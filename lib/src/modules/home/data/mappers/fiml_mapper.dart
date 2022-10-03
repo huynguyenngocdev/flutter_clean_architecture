@@ -14,7 +14,7 @@ class FilmMapper extends ModelToEntityMapper<FilmModel, FilmEntity> {
       producer: data.producer.toString(),
       image: data.image.toString(),
       movieBanner: data.movieBanner.toString(),
-      releaseDate: data.movieBanner.toString(),
+      releaseDate: data.releaseDate.toString(),
       runningTime: data.runtimeType.toString(),
     );
   }

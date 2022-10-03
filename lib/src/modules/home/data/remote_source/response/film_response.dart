@@ -9,7 +9,8 @@ class FilmResponse {
   //TODO: please custom to suitable with response from your API
   // final int? code;
   // final int? message;
-
+  // @JsonValue(List<FilmModel>)
+  // @JsonKey(name: "", defaultValue: [])
   final List<FilmModel>? films;
   FilmResponse({this.films});
 

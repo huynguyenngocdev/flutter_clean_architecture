@@ -8,10 +8,14 @@ class AppStorage {
 
   AppStorage._();
 
-  static AppStorage init() {
+  static Future<AppStorage> init() async {
     if (!(Hive.isBoxOpen(_prefsBox))) {
-      Hive.openBox(_prefsBox);
+      await Hive.openBox(_prefsBox);
     }
+    return AppStorage._();
+  }
+
+  static AppStorage use() {
     return AppStorage._();
   }
 

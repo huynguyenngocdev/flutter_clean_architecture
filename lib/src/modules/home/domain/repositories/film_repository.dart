@@ -1,5 +1,8 @@
-import 'package:flutter_clean_architecture/src/modules/home/data/models/models.dart';
+import 'package:flutter_clean_architecture/src/modules/home/domain/entities/film_entity.dart';
+import 'package:injectable/injectable.dart';
 
+@factoryMethod
 abstract class FilmRepository {
-  Future<List<FilmModel>> fetchFilms();
+  @preResolve
+  Future<List<FilmEntity>> fetchFilms();
 }

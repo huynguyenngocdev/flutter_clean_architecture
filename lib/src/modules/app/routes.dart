@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/src/core/types/direction_type.dart';
+import 'package:flutter_clean_architecture/src/modules/home/domain/entities/film_entity.dart';
+import 'package:flutter_clean_architecture/src/modules/home/presentation/detail_film_screen/detail_film_screen.dart';
 import 'package:flutter_clean_architecture/src/modules/home/presentation/home_screen/home_screen.dart';
-import 'package:flutter_clean_architecture/src/modules/home/presentation/second_screen/second_screen.dart';
 import 'package:flutter_clean_architecture/src/modules/splash/splash.dart';
 
 enum Routes { splash, home, login, secondScreen }
@@ -32,7 +33,7 @@ class AppNavigator {
 
       case _Paths.secondScreen:
         return NavSlideCloseCustom(
-          child: const SecondScreen(),
+          child: DetailFilmScreen(filmData: settings.arguments as FilmEntity),
           direction: DirectionType.left,
         );
 
@@ -105,7 +106,10 @@ class NavSlideCloseCustom extends PageRouteBuilder {
   @override
   Widget buildTransitions(BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation, Widget child) {
-    return SlideTransition(
-        position: getPosition().animate(animation), child: child);
+    return FadeTransition(
+      opacity: animation,
+      child: SlideTransition(
+          position: getPosition().animate(animation), child: child),
+    );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_clean_architecture/src/core/config/app_config.dart';
+import 'package:flutter_clean_architecture/src/core/di/locator.dart';
 import 'package:flutter_clean_architecture/src/core/providers/remote/interceptor/header_interceptor.dart';
 
 class DioBuilder extends DioMixin implements Dio {
@@ -16,7 +18,7 @@ class DioBuilder extends DioMixin implements Dio {
 
   DioBuilder._(bool ignoredToken, [BaseOptions? options]) {
     options = BaseOptions(
-      baseUrl: options!.baseUrl,
+      baseUrl: locator<AppConfig>().baseUrl,
       contentType: contentType,
       connectTimeout: connectionTimeOutMls,
       receiveTimeout: readTimeOutMls,
@@ -30,14 +32,13 @@ class DioBuilder extends DioMixin implements Dio {
       interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
     }
 
-    // Add default user
     interceptors.add(HeaderInterceptor());
 
     // create default http client
+    httpClientAdapter = DefaultHttpClientAdapter();
     // If you want run for web, please use httpClientAdapter from BrowserHttpClientAdapter
     // if (kIsWeb) {
     //   httpClientAdapter = BrowserHttpClientAdapter();
     // }
-    httpClientAdapter = DefaultHttpClientAdapter();
   }
 }

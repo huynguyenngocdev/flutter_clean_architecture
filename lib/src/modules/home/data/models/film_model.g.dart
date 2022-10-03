@@ -16,7 +16,7 @@ FilmModel _$FilmModelFromJson(Map<String, dynamic> json) => FilmModel(
       description: json['description'] as String?,
       director: json['director'] as String?,
       producer: json['producer'] as String?,
-      releaseDate: json['releaseDate'] as String?,
+      releaseDate: json['release_date'] as String?,
       runningTime: json['running_time'] as String?,
     );
 
@@ -30,6 +30,6 @@ Map<String, dynamic> _$FilmModelToJson(FilmModel instance) => <String, dynamic>{
       'description': instance.description,
       'director': instance.director,
       'producer': instance.producer,
-      'releaseDate': instance.releaseDate,
+      'release_date': instance.releaseDate,
       'running_time': instance.runningTime,
     };
