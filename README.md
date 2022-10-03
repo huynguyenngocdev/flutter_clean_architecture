@@ -101,12 +101,11 @@ or https://blog.usejournal.com/flutter-di-a-true-love-story-1e5a5ae2ba2d
 ### Codebase Overview
 This is a diagram that I drew to design and describe this codebase. (to view PDF version ![click here](files/Codebase%20Clean%20Architecture%20Flutter.drawio.pdf))
 ```
-.
+lib
 ├── gen
 │   ├── l10n
 │   │   ├── res_en.dart
 │   │   ├── res_vi.dart
-│   │   ├── (...).dart
 │   │   └── res.dart
 │   ├── assets.gen.dart
 │   ├── colors.gen.dart
@@ -155,14 +154,15 @@ This is a diagram that I drew to design and describe this codebase. (to view PDF
 │   │   │   │   │   ├── app_pref.dart
 │   │   │   │   │   └── pref_helper.dart
 │   │   │   │   └── app_storage.dart
-│   │   │   └── remote
-│   │   │       ├── builder
-│   │   │       │   └── dio_builder.dart
-│   │   │       ├── interceptor
-│   │   │       │   └── header_interceptor.dart
-│   │   │       └── response
-│   │   │           ├── errors_response.dart
-│   │   │           └── errors_response.g.dart
+│   │   │   ├── remote
+│   │   │   │   ├── builder
+│   │   │   │   │   └── dio_builder.dart
+│   │   │   │   ├── interceptor
+│   │   │   │   │   └── header_interceptor.dart
+│   │   │   │   └── response
+│   │   │   │       ├── errors_response.dart
+│   │   │   │       └── errors_response.g.dart
+│   │   │   └── providers_module.dart
 │   │   ├── services
 │   │   │   ├── request_permission.dart
 │   │   │   └── socket.dart
@@ -222,24 +222,19 @@ This is a diagram that I drew to design and describe this codebase. (to view PDF
 │   │   │   ├── loading_popup.dart
 │   │   │   ├── popup_modal_custom_content.dart
 │   │   │   ├── popup_notification.dart
-│   │   │   ├── popup.dart
-│   │   │   └── (...).dart
+│   │   │   └── popup.dart
 │   │   ├── home
 │   │   │   ├── data
 │   │   │   │   ├── mappers
-│   │   │   │   │   ├── (...).g.dart
 │   │   │   │   │   └── fiml_mapper.dart
 │   │   │   │   ├── models
 │   │   │   │   │   ├── film_model.dart
 │   │   │   │   │   ├── film_model.g.dart
-│   │   │   │   │   ├── (...).dart
-│   │   │   │   │   ├── (...).g.dart
 │   │   │   │   │   └── models.dart
 │   │   │   │   ├── remote_source
 │   │   │   │   │   ├── api
 │   │   │   │   │   │   ├── film_api.dart
-│   │   │   │   │   │   ├── film_api.g.dart
-│   │   │   │   │   │   └── (...).dart
+│   │   │   │   │   │   └── film_api.g.dart
 │   │   │   │   │   └── response
 │   │   │   │   │       ├── film_response.dart
 │   │   │   │   │       └── film_response.g.dart
@@ -258,10 +253,10 @@ This is a diagram that I drew to design and describe this codebase. (to view PDF
 │   │   │       │       ├── film_bloc.dart
 │   │   │       │       ├── film_event.dart
 │   │   │       │       └── film_state.dart
-│   │   │       ├── home_screen
-│   │   │       │   └── home_screen.dart
-│   │   │       └── second_screen
-│   │   │           └── second_screen.dart
+│   │   │       ├── detail_film_screen
+│   │   │       │   └── detail_film_screen.dart
+│   │   │       └── home_screen
+│   │   │           └── home_screen.dart
 │   │   └── splash
 │   │       └── splash.dart
 │   └── main.dart
@@ -269,7 +264,6 @@ This is a diagram that I drew to design and describe this codebase. (to view PDF
 ├── main.product.dart
 └── main.staging.dart
 ```
-
 **Exception Flow**
     ![alt text](files/exception-handler.jpg)
 
@@ -319,3 +313,7 @@ Every "feature" of the app, like sign in with email and password, will be divide
 
    ![alt text](https://i0.wp.com/resocoder.com/wp-content/uploads/2019/08/presentation-layer-diagram.png?w=287&ssl=1)
 
+## Example
+
+<img src="files/demo1.png " width="250">
+<img src="files/demo2.png" width="250">
